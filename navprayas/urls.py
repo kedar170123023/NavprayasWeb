@@ -51,4 +51,7 @@ urlpatterns = [
     path('rangotsav_register/', views.rangotsav_register, name='rangotsav_register'),
     path('FHS_register/', views.FHS_register, name='FHS_register'),
     path('chess_register/', views.chess_register, name='chess_register'),
+
+
+    path('pdf/', views.getPdf, name='getPdf')
 ]

@@ -5,6 +5,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login as auth_login   #as it clashes with other login term
 from .forms import *                                                 #all the components from .form
 
+from django.views.generic import View
+from django.utils import timezone
+from .models import *
+from .render import Render
+
 # Create your views here.
 def index(request):
     return render(request, 'navprayas/home_links/index.html', {})
@@ -238,3 +243,28 @@ def chess_register(request):
 
 
 
+# *************************
+# PDF
+# *************************
+def getPdf(request):
+    users = Profile.objects.all()
+    today = timezone.now()
+    params = {
+        'today': today,
+        'users': users,
+        'request': request
+    }
+    return Render.render('navprayas/doc/getPdf.html', params)
+
+'''
+class Pdf(View):
+    def getPdf(self, request):
+        users = Profile.objects.all()
+        today = timezone.now()
+        params = {
+            'today': today,
+            'users': users,
+            'request': request
+        }
+        return Render.render('navprayas/doc/getPdf.html', params)
+'''

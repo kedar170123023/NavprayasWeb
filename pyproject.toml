@@ -8,6 +8,7 @@ authors = ["Ambuj Kumar <itsambuja@gmail.com>"]
 python = "^3.7"
 django-crispy-forms = "^1.7"
 django = "^2.2"
+xhtml2pdf = "^0.2.3"
 
 [tool.poetry.dev-dependencies]
 
